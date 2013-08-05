@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+	<extension id="product" point="org.eclipse.core.runtime.products">
+		<product name="pl.horaczy.robocode.editor" application="org.eclipse.e4.ui.workbench.swt.E4Application">
+			<property name="clearPersistedState" value="true">
+			</property>
+			<property name="applicationCSS"
+				value="platform:/plugin/pl.horaczy.robocode.editor/css/default.css">
+			</property>
+			<property name="appName" value="pl.horaczy.robocode.editor">
+			</property>
+		</product>
+	</extension>
+
+	<extension point="org.eclipse.e4.ui.css.core.elementProvider">
+		<provider
+			class="pl.horaczy.robocode.editor.widget.css.EditorCanvasSWTElementProvider">
+			<widget class="pl.horaczy.robocode.editor.widget.EditorCanvas" />
+		</provider>
+	</extension>
+
+	<extension point="org.eclipse.e4.ui.css.core.propertyHandler">
+		<handler adapter="pl.horaczy.robocode.editor.widget.css.EditorCanvasElement"
+			composite="true"
+			handler="pl.horaczy.robocode.editor.widget.css.CSSGridLinesPropertyHandler">
+			<property-name name="grid-lines-color" />
+		</handler>
+	</extension>
+
+</plugin>

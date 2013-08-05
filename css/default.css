@@ -1,0 +1,54 @@
+MTrimmedWindow {
+	background-color: #E1E6F6;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.MTrimmedWindow.topLevel {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.MPartStack {
+	swt-tab-renderer: url('platform:/…..CTabRendering');
+	swt-unselected-tabs-color: #FFFFFF #FFFFFF #FFFFFF 100% 100%;
+	swt-outer-keyline-color: #FFFFFF;
+	swt-swt-inner-keyline-color: #FFFFFF;
+	swt-simple: true;
+}
+
+.MPartStack.active {
+	swt-unselected-tabs-color: #DDDDFF #DDDDFF #DDDDFF 100% 100%;
+	swt-outer-keyline-color: #B6BCCC;
+	swt-inner-keyline-color: #FFFFFF;
+	swt-tab-outline: #B6BCCC;
+}
+
+CTabItem {
+	color: #444444;
+}
+
+CTabItem:selected {
+	background-color: #FEFEFE;
+	color: #000000;
+}
+
+Table {
+	background-color: gradient linear #FFFFFF #F9F9F9;
+	color: #111111;
+}
+
+Tree {
+	background-color: gradient linear #FFFFFF #F9F9F9;
+	color: #111111;
+}
+
+EditorCanvas {
+    background-color: #FFFFFF;  
+    grid-lines-color: #F0F0F0;
+}
+

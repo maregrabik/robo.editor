@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_WnmpgMz2EeKCX7N5Llgo9A" elementId="pl.horaczy.robocode.editor.app">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Wnmpgcz2EeKCX7N5Llgo9A" selectedElement="_9zvk8M0OEeKCX7N5Llgo9A" label="Edytor RoboCode" iconURI="" width="1000" height="700">
+    <tags>shellMaximized</tags>
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_9zvk8M0OEeKCX7N5Llgo9A" elementId="pl.horaczy.robocode.editor.perspectivestack" selectedElement="_CbvDwM0PEeKCX7N5Llgo9A">
+      <children xsi:type="advanced:Perspective" xmi:id="_CbvDwM0PEeKCX7N5Llgo9A" elementId="pl.horaczy.robocode.editor.projects.perspective" label="Projekty">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_NynccM0PEeKCX7N5Llgo9A" elementId="" containerData="" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_-EAF4M27EeKCX7N5Llgo9A" elementId="" containerData="15">
+            <tags>NoAutoCollapse</tags>
+            <children xsi:type="basic:Part" xmi:id="_bY2BkM0PEeKCX7N5Llgo9A" elementId="pl.horaczy.robocode.editor.part.projects.view" contributionURI="bundleclass://pl.horaczy.robocode.editor/pl.horaczy.robocode.editor.part.ProjectsView" label="Projekty" iconURI=""/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_Ah3sEM6kEeKPD7Kq7jVALg" elementId="pl.horaczy.robocode.editor.dataStack" containerData="70">
+            <tags>NoAutoCollapse</tags>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_Wq5EsM0PEeKCX7N5Llgo9A" elementId="" containerData="15">
+            <children xsi:type="basic:PartStack" xmi:id="_N6e2YM28EeKCX7N5Llgo9A" elementId="">
+              <children xsi:type="basic:Part" xmi:id="_CHn_gM0QEeKCX7N5Llgo9A" elementId="pl.horaczy.robocode.editor.part.pojecia.view" contributionURI="bundleclass://pl.horaczy.robocode.editor/pl.horaczy.robocode.editor.part.PaletteView" label="Paleta instrukcji"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_O4vOYM28EeKCX7N5Llgo9A" elementId="">
+              <children xsi:type="basic:Part" xmi:id="_Ih9lsM0QEeKCX7N5Llgo9A" elementId="pl.horaczy.robocode.editor.part.properties.view" contributionURI="bundleclass://pl.horaczy.robocode.editor/pl.horaczy.robocode.editor.part.WlasciwosciView" label="Wlasciwosci"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <trimBars xmi:id="_4Jc6ENP9EeKshLGkI4G1Rg" elementId="pl.horaczy.robocode.editor.trimbar" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_8o7WENP9EeKshLGkI4G1Rg" elementId="pl.horaczy.robocode.editor.toolcontrol" contributionURI="bundleclass://pl.horaczy.robocode.editor/pl.horaczy.robocode.editor.widget.StatusBar"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_mywTYM9wEeKMlbCYUnLo3Q" elementId="pl.horaczy.robocode.editor.handler.EditCodeHandler" contributionURI="bundleclass://pl.horaczy.robocode.editor/pl.horaczy.robocode.editor.handler.EditCodeHandler" command="_0of7MM9wEeKMlbCYUnLo3Q"/>
+  <bindingTables xmi:id="_xPxqoM2pEeKCX7N5Llgo9A" elementId="" bindingContext="_IHnkUM0WEeKCX7N5Llgo9A"/>
+  <rootContext xmi:id="_IHnkUM0WEeKCX7N5Llgo9A" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_Mt5L4M0WEeKCX7N5Llgo9A" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_On2XIM0WEeKCX7N5Llgo9A" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <descriptors xmi:id="_7m5YEM9tEeKMlbCYUnLo3Q" elementId="pl.horaczy.robocode.editor.part.code.editor" label="Wizualny edytor kodu robota" iconURI="platform:/plugin/pl.horaczy.robocode.editor/icons/code.png" allowMultiple="true" closeable="true" dirtyable="true" contributionURI="bundleclass://pl.horaczy.robocode.editor/pl.horaczy.robocode.editor.part.CodeEditor"/>
+  <commands xmi:id="_0of7MM9wEeKMlbCYUnLo3Q" elementId="pl.horaczy.robocode.editor.handler.editCodeCommand" commandName="Edycja kodu robota" description="Otwiera edytor kodu robota">
+    <parameters xmi:id="_PiutAM9xEeKMlbCYUnLo3Q" elementId="pl.horaczy.robocode.editor.editCode.codeParameter" name="Input" typeId=""/>
+  </commands>
+  <addons xmi:id="_Wnmpgsz2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_Wnmpg8z2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_WnmphMz2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_Wnmphcz2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_Wnmphsz2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_Wnmph8z2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_WnmpiMz2EeKCX7N5Llgo9A" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>
