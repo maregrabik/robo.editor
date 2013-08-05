@@ -9,9 +9,12 @@ public class Code extends Model implements Comparable<Code> {
 
 	/** Definicja robota. */
 	private Robot robot;
+	
 	/** Numer wersji kodu. */
 	@Property(name = "Numer wersji")
 	private int numer;
+
+	private String nazwa;
 
 	/**
 	 * Tworzy kod robota o numerze <i>1</i>.
@@ -27,6 +30,11 @@ public class Code extends Model implements Comparable<Code> {
 	 */
 	public Code(int pNumer) {
 		setNumer(pNumer);
+	}
+
+	public Code(String pNazwa) {
+		setNazwa(pNazwa);
+	numer = 1;
 	}
 
 	/**
@@ -84,7 +92,15 @@ public class Code extends Model implements Comparable<Code> {
 	 */
 	@Override
 	protected String getInputURIPart() {
-		return String.format("%s/kod-%d", getRobot().getInputURIPart(), getNumer());
+		return String.format("%s/kod-%d", getRobot().getInputURIPart(),getNumer());
+	}
+
+	public String getNazwa() {
+		return this.nazwa;
+	}
+
+	public void setNazwa(String pNazwa) {
+		this.nazwa = pNazwa;
 	}
 
 }

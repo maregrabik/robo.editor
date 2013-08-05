@@ -29,12 +29,20 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 
+import pl.horaczy.robocode.editor.model.Code;
+import pl.horaczy.robocode.editor.model.GetHitCode;
 import pl.horaczy.robocode.editor.model.Project;
 import pl.horaczy.robocode.editor.model.Robot;
-import pl.horaczy.robocode.editor.model.Code;
 import pl.horaczy.robocode.editor.provider.ProjectsLabelProvider;
 
 /**
@@ -55,6 +63,7 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
+	private Robot robot1;
 
 	/**
 	 * Tworzy niezainicjowany widok projektow.
@@ -71,8 +80,9 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 	 */
 	@PostConstruct
 	public void createComposite(Composite pParent) {
-		pParent.setLayout(new FillLayout());
 
+		pParent.setLayout(new FillLayout());
+		addGlobalMouseListener(pParent);
 		ObservableListTreeContentProvider contentProvider = createContentProvider();
 		ProjectsLabelProvider labelProvider = createLabelProvider(contentProvider);
 
@@ -85,6 +95,61 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 		this.treeViewer.setInput(this.input);
 
 		refreshData();
+
+	}
+
+	private void addGlobalMouseListener(final Composite pParent) {
+
+		pParent.getDisplay().addFilter(SWT.MouseDown, new Listener() {
+
+			@Override
+			public void handleEvent(Event pEvent) {
+
+				if (pEvent.widget.toString().equals("Tree {}") && pEvent.button == 3) {
+
+					Menu popupMenu = new Menu((Control) pEvent.widget);
+
+					MenuItem newItem = new MenuItem(popupMenu, SWT.CASCADE);
+					newItem.setText("Nowa instrukcja");
+
+					MenuItem refreshItem = new MenuItem(popupMenu, SWT.NONE);
+					refreshItem.setText("Refresh");
+
+					MenuItem deleteItem = new MenuItem(popupMenu, SWT.NONE);
+					deleteItem.setText("Delete");
+
+					Menu menuInstrukcji = new Menu(popupMenu);
+					newItem.setMenu(menuInstrukcji);
+
+					MenuItem oberwanieItem = new MenuItem(menuInstrukcji, SWT.NONE);
+					oberwanieItem.setText("Akcja przy oberwaniu pociskiem");
+					oberwanieItem.addSelectionListener(new SelectionListener() {
+						
+						@Override
+						public void widgetSelected(SelectionEvent pE) {
+							robot1.add(new GetHitCode(2));
+							treeViewer.refresh();
+						}
+						
+						@Override
+						public void widgetDefaultSelected(SelectionEvent pE) {
+							
+							
+						}
+					});
+
+					MenuItem trafienieItem = new MenuItem(menuInstrukcji, SWT.NONE);
+					trafienieItem.setText("Akcja przy trafieniu");
+
+					MenuItem skanItem = new MenuItem(menuInstrukcji, SWT.NONE);
+					skanItem.setText("Zeskanowanie robota");
+
+					popupMenu.setVisible(true);
+
+				}
+
+			}
+		});
 	}
 
 	/**
@@ -127,26 +192,25 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 	 * Odswieza liste projektow w widoku.
 	 */
 	public void refreshData() {
-		// TODO: z plikow
-		Robot robot1 = new Robot("Shooter");
-		robot1.add(new Code(1));
-//		Robot robot2 = new Robot("Pathfinder");
-//		robot2.add(new Code(1));
-//		Robot robot3 = new Robot("Killer");
-//		robot3.add(new Code(1));
-//		robot3.add(new Code(2));
-//		robot3.add(new Code(3));
+		robot1 = new Robot("Shooter");
+		robot1.add(new Code("Pxxx"));
+		// Robot robot2 = new Robot("Pathfinder");
+		// robot2.add(new Code(1));
+		// Robot robot3 = new Robot("Killer");
+		// robot3.add(new Code(1));
+		// robot3.add(new Code(2));
+		// robot3.add(new Code(3));
 
 		Project project1 = new Project("Testowe");
 		project1.add(robot1);
-//		project1.add(robot2);
-		
-//		Project project2 = new Project("Na konkurs");
-//		project2.add(robot3);
+		// project1.add(robot2);
+
+		// Project project2 = new Project("Na konkurs");
+		// project2.add(robot3);
 
 		this.input.clear();
 		this.input.add(project1);
-//		this.input.add(project2);
+		// this.input.add(project2);
 		this.treeViewer.expandAll();
 	}
 
