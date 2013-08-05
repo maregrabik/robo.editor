@@ -130,23 +130,23 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 		// TODO: z plikow
 		Robot robot1 = new Robot("Shooter");
 		robot1.add(new Code(1));
-		Robot robot2 = new Robot("Pathfinder");
-		robot2.add(new Code(1));
-		Robot robot3 = new Robot("Killer");
-		robot3.add(new Code(1));
-		robot3.add(new Code(2));
-		robot3.add(new Code(3));
+//		Robot robot2 = new Robot("Pathfinder");
+//		robot2.add(new Code(1));
+//		Robot robot3 = new Robot("Killer");
+//		robot3.add(new Code(1));
+//		robot3.add(new Code(2));
+//		robot3.add(new Code(3));
 
 		Project project1 = new Project("Testowe");
 		project1.add(robot1);
-		project1.add(robot2);
+//		project1.add(robot2);
 		
-		Project project2 = new Project("Na konkurs");
-		project2.add(robot3);
+//		Project project2 = new Project("Na konkurs");
+//		project2.add(robot3);
 
 		this.input.clear();
 		this.input.add(project1);
-		this.input.add(project2);
+//		this.input.add(project2);
 		this.treeViewer.expandAll();
 	}
 
