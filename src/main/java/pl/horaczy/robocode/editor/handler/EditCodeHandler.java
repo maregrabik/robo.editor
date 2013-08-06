@@ -10,7 +10,7 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 
-import pl.horaczy.robocode.editor.model.Code;
+import pl.horaczy.robocode.editor.model.Function;
 import pl.horaczy.robocode.editor.service.InputPartService;
 
 /**
@@ -28,7 +28,7 @@ public class EditCodeHandler {
 	 */
 	@CanExecute
 	public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) Object pActive) {
-		return pActive instanceof Code;
+		return pActive instanceof Function;
 	}
 
 	/**
@@ -39,9 +39,9 @@ public class EditCodeHandler {
 	 */
 	@Execute
 	public void execute(MApplication pApp, EModelService pModelService, InputPartService pPartService,
-			@Named(IServiceConstants.ACTIVE_SELECTION) Code pCode) {
+			@Named(IServiceConstants.ACTIVE_SELECTION) Function pCode) {
 
-		pApp.getContext().set(Code.class, pCode);
+		pApp.getContext().set(Function.class, pCode);
 		MInputPart inputPart = pPartService.getInputPart(pCode);
 		if (inputPart == null) {
 			inputPart = pPartService.createInputPart("pl.horaczy.robocode.editor.part.code.editor", pCode);

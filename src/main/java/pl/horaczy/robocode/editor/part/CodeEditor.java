@@ -9,7 +9,7 @@ import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import pl.horaczy.robocode.editor.model.Code;
+import pl.horaczy.robocode.editor.model.Function;
 import pl.horaczy.robocode.editor.model.InstructionFor;
 import pl.horaczy.robocode.editor.model.InstructionRotate;
 import pl.horaczy.robocode.editor.model.InstructionShoot;
@@ -44,10 +44,10 @@ public class CodeEditor implements EditorListener {
 	 * @param	pParent komponent rodzica
 	 */
 	@PostConstruct
-	public void createComposite(Composite pParent, MInputPart pInputPart, Code pCode) {
+	public void createComposite(Composite pParent, MInputPart pInputPart, Function pCode) {
 		this.inputPart = pInputPart;
 		Robot robot = pCode.getRobot();
-		this.inputPart.setLabel(String.format("%s, kod v%d", robot.getNazwa(), pCode.getNumer()));
+		this.inputPart.setLabel(String.format("%s, %s", robot.getNazwa(), pCode.getNazwa()));
 
 		ShapeGroup shapeGroup = new ShapeGroup("commands", 0, 0);
 		shapeGroup.add(new InstructionStart(20, 20));

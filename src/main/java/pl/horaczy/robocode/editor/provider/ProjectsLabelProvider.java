@@ -4,9 +4,9 @@ import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
+import pl.horaczy.robocode.editor.model.Function;
 import pl.horaczy.robocode.editor.model.Project;
 import pl.horaczy.robocode.editor.model.Robot;
-import pl.horaczy.robocode.editor.model.Code;
 import pl.horaczy.robocode.editor.pool.Images;
 
 /**
@@ -35,8 +35,8 @@ public class ProjectsLabelProvider extends ObservableMapLabelProvider {
 			return ((Project) pElement).getNazwa();
 		} else if (pElement instanceof Robot) {
 			return String.format("Robot %s", ((Robot) pElement).getNazwa());
-		} else if (pElement instanceof Code) {
-			return String.format("kod v%d", ((Code) pElement).getNumer());
+		} else if (pElement instanceof Function) {
+			return String.format("funkcja %s", ((Function) pElement).getNazwa());
 		}
 		return super.getText(pElement);
 	}
@@ -52,7 +52,7 @@ public class ProjectsLabelProvider extends ObservableMapLabelProvider {
 			return Images.PROJECT_ICO;
 		} else if (pElement instanceof Robot) {
 			return Images.ROBOT_ICO;
-		} else if (pElement instanceof Code) {
+		} else if (pElement instanceof Function) {
 			return Images.CODE_ICO;
 		}
 		return super.getImage(pElement);

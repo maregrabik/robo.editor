@@ -7,7 +7,7 @@ import java.util.List;
 
 import pl.horaczy.robocode.editor.model.annotation.Property;
 
-public class Robot extends Model implements Comparable<Robot>, Iterable<Code> {
+public class Robot extends Model implements Comparable<Robot>, Iterable<Function> {
 
 	/** UID. */
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class Robot extends Model implements Comparable<Robot>, Iterable<Code> {
 	@Property(name = "Nazwa")
 	private String nazwa;
 	/** Wersje kodow robota. */
-	private List<Code> codes;
+	private List<Function> codes;
 
 	/**
 	 * Tworzy nienazwanego robota.
@@ -54,7 +54,7 @@ public class Robot extends Model implements Comparable<Robot>, Iterable<Code> {
 	/**
 	 * @param	pCode nowy kod
 	 */
-	public void add(Code pCode) {
+	public void add(Function pCode) {
 		pCode.setRobot(this);
 		this.codes.add(pCode);
 	}
@@ -62,8 +62,8 @@ public class Robot extends Model implements Comparable<Robot>, Iterable<Code> {
 	/**
 	 * @param	pCodes nowe kody
 	 */
-	public void add(Collection<Code> pCodes) {
-		for (Code code : pCodes) {
+	public void add(Collection<Function> pCodes) {
+		for (Function code : pCodes) {
 			add(code);
 		}
 	}
@@ -71,7 +71,7 @@ public class Robot extends Model implements Comparable<Robot>, Iterable<Code> {
 	/**
 	 * @return	kolekcja kodow robota (kolejne wersje)
 	 */
-	public List<Code> getCodes() {
+	public List<Function> getCodes() {
 		return this.codes;
 	}
 
@@ -105,7 +105,7 @@ public class Robot extends Model implements Comparable<Robot>, Iterable<Code> {
 	 * @see java.lang.Iterable#iterator()
 	 */
 	@Override
-	public Iterator<Code> iterator() {
+	public Iterator<Function> iterator() {
 		return this.codes.iterator();
 	}
 

@@ -39,8 +39,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 
-import pl.horaczy.robocode.editor.model.Code;
-import pl.horaczy.robocode.editor.model.GetHitCode;
+import pl.horaczy.robocode.editor.model.Function;
+import pl.horaczy.robocode.editor.model.FunctionOnHit;
 import pl.horaczy.robocode.editor.model.Project;
 import pl.horaczy.robocode.editor.model.Robot;
 import pl.horaczy.robocode.editor.provider.ProjectsLabelProvider;
@@ -127,7 +127,7 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 						
 						@Override
 						public void widgetSelected(SelectionEvent pE) {
-							robot1.add(new GetHitCode(2));
+							robot1.add(new FunctionOnHit());
 							treeViewer.refresh();
 						}
 						
@@ -174,7 +174,7 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 		IStructuredSelection selection = (IStructuredSelection) pEvent.getSelection();
 		Object selectedElement = selection.getFirstElement();
 
-		if (selectedElement instanceof Code) {
+		if (selectedElement instanceof Function) {
 			ParameterizedCommand cmd = this.commandService.createCommand("pl.horaczy.robocode.editor.handler.editCodeCommand", null);
 			this.handlerService.executeHandler(cmd);
 		}
@@ -193,7 +193,7 @@ public class ProjectsView implements ISelectionChangedListener, IDoubleClickList
 	 */
 	public void refreshData() {
 		robot1 = new Robot("Shooter");
-		robot1.add(new Code("Pxxx"));
+		robot1.add(new Function("Pxxx"));
 		// Robot robot2 = new Robot("Pathfinder");
 		// robot2.add(new Code(1));
 		// Robot robot3 = new Robot("Killer");
